@@ -1,0 +1,29 @@
+# Site settings
+title: "Thuốc"
+url-title: "Thuốc"
+description: "Đoàn Bình"
+paginate: 100
+url: "https://iloves.club"
+permalink: /:year/:month/:title/
+future: false
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      excerpt_words: 25
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+sass:
+  sass_dir: _sass
+  style: compressed
+  deploy_style: compressed
+
+gems: [jekyll-paginate]

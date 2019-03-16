@@ -1,2 +1,7 @@
-# png4jpg
-binh
+# `mxstbr.blog`
+
+The repository for my Jekyll–based blog, hosted on GitHub pages.
+
+## License
+
+Code released under [the MIT license](LICENSE.txt).

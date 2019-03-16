@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<article class="wrapper wrapper--content" role="article" itemprop="blogPost">
+	<header class="post__header">
+		<h1 class="post__title" itemprop="headline">{{ page.title | xml_escape }}</h1>
+		<hr />
+		<h2 class="post__date" itemprop="datePublished">{% include date.html date=page.date %}</h2>
+	</header>
+
+	{{ content }}
+
+	<hr class="mc_hr" />
+
+	<h2>Thích bài này? Đăng ký nhận bản tin hàng tuần!</h2>
+	<p>Hãy là người đầu tiên biết khi nào một bài viết mới được đăng và nhận được tin sốt dẻo về những tin tức thú vị nhất và các liên kết mới nhất trong tuần.</p>
+
+	{% include newsletter-form.html %}
+
+	<hr />
+
+	<div class="post__related">
+		{% if page.previous %}
+			<a href="{% if page.previous.external_url %}{{ page.previous.external_url }}{% else %}{{ page.previous.url }}{% endif %}" target="{% if page.previous.external_url %}_blank{% endif %}" class="post__related-previous" onclick="OWATracker.trackAction('post', 'click', 'previous');" title="{{ page.previous.title }}">{{ page.previous.title }}</a>
+		{% endif %}
+		{% if page.next %}
+			{% if page.next.hidden != true %}
+				<a href="{% if page.next.external_url %}{{ page.next.external_url }}{% else %}{{ page.next.url }}{% endif %}" target="{% if page.next.external_url %}_blank{% endif %}" class="post__related-next" onclick="OWATracker.trackAction('post', 'click', 'next');" title="{{ page.next.title }}">{{ page.next.title }}</a>
+			{% endif %}
+		{% endif %}
+	</div>
+
+	<a href="https://twitter.com/intent/tweet?original_referer={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&amp;text={{ page.title | uri_escape }}&amp;tw_p=tweetbutton&amp;url={{ site.url | cgi_escape }}{{ page.url | cgi_escape }}&amp;via=mxstbr" rel="nofollow" target="_blank" class="share-on-twitter hidden" onclick="OWATracker.trackAction('post', 'click', 'tweet-this');">Tweet this article</a>
+
+</article>
